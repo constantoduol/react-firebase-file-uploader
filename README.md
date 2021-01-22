@@ -5,6 +5,7 @@ A file uploader for react that uploads images, videos and other files to your fi
 ## Props
 
 - `storageRef` (required) - A reference to the firebase storage folder, where the file should be saved.
+- `onBeforeUpload` - A callback function that is called with the selected file as its first argument, return false to stop upload.
 - `onUploadStart` - A callback function that is called with the selected file as its first argument and the upload task as its second argument.
 - `onProgress` - A callback function that is called with the progress (between 0 and 100) as its first argument and the upload task as its second argument.
 - `onUploadSuccess` - A callback function that is called with the filename of the uploaded file as its first argument and the upload task as its second argument.
