@@ -79,8 +79,17 @@ export default class FirebaseFileUploader extends Component<Props> {
       storageRef,
       metadata,
       randomizeFilename,
-      filename
+      filename,
+      onBeforeUpload
     } = this.props;
+
+    if(onBeforeUpload && typeof onBeforeUpload === 'function'){
+      const shouldProceedWithUpload = onBeforeUpload(file)
+      if(!shouldProceedWithUpload){
+        console.log("upload ended prematurely")
+        return
+      }
+    }
 
     let filenameToUse;
     if (filename) {
